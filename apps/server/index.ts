@@ -1,7 +1,7 @@
-import express, { Request, Response } from "express";
-
 import cors from "cors";
-import authRouter from "./routes/userRout";
+import express, { Request, Response } from "express";
+import postRouter from "./routes/postRoute";
+import authRouter from "./routes/userRoute";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -17,6 +17,7 @@ app.get("/", (req: Request, res: Response) => {
 // apis
 
 app.use("/api/register", authRouter);
+app.use("/api/post", postRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
