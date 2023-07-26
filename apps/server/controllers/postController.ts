@@ -23,3 +23,23 @@ export const createPost = async (req: Request, res: Response) => {
     res.status(500).send(error);
   }
 };
+
+export const getAllPosts = async (req: Request, res: Response) => {
+  const users = await prisma.post.findMany({
+    include: {
+      author: {
+        select: {
+          name: true,
+          email: true,
+        },
+      },
+    },
+  });
+
+  res.status(201).send(users);
+
+  try {
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
