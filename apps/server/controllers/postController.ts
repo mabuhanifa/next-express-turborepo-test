@@ -29,7 +29,7 @@ export const getAllPosts = async (req: Request, res: Response) => {
     include: {
       author: {
         select: {
-          name: true,
+          id: true,
           email: true,
         },
       },

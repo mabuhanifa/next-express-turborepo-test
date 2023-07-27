@@ -1,10 +1,9 @@
-import { Button, Header } from "ui";
+import Home from "./components/Home";
 
 export default function Page() {
   return (
     <>
-      <Header text="Web" />
-      <Button />
+      <Home />
     </>
   );
 }
